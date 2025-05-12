@@ -1,0 +1,173 @@
+/* Import Google Fonts if not done via HTML link */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    /* Apply base fonts defined in Tailwind config */
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Scrollbar Styling (Optional - Webkit Browsers) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a3d;
+    /* dark-blue */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #00ffff;
+    /* neon-blue */
+    border-radius: 4px;
+    border: 1px solid #1a1a3d;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #39ff14;
+    /* neon-green */
+}
+
+
+/* Animated Starfield Background */
+.starfield-bg {
+    background: black url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="1" fill="%23aaa" opacity="0.2"/><circle cx="10" cy="20" r="0.5" fill="%23fff" opacity="0.3"/><circle cx="80" cy="70" r="0.8" fill="%2388f" opacity="0.25"/><circle cx="30" cy="90" r="1.2" fill="%23f88" opacity="0.15"/><circle cx="60" cy="10" r="0.7" fill="%23afa" opacity="0.2"/></svg>');
+    background-size: 400px 400px;
+    /* Adjust density */
+    animation: starfield 120s linear infinite;
+    /* Matches Tailwind config */
+}
+
+@keyframes starfield {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 0 800px;
+    }
+
+    /* Adjust distance */
+}
+
+/* Hero Background Layer (Optional Parallax/Animation) */
+.hero-bg-animation {
+    /* Add subtle nebula, grid lines, or another animated effect */
+    /* Example: Faint moving grid */
+    /* background: linear-gradient(rgba(0, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px); */
+    /* background-size: 50px 50px; */
+    /* animation: grid-move 30s linear infinite; */
+}
+
+@keyframes grid-move {
+    from {
+        background-position: 0 0;
+    }
+
+    to {
+        background-position: 100px 100px;
+    }
+}
+
+
+/* Glowing Text Effects */
+.title-glow {
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.7),
+        0 0 16px rgba(0, 255, 255, 0.5),
+        0 0 24px rgba(0, 255, 255, 0.3);
+}
+
+.title-glow-subtle {
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.4);
+}
+
+/* Section Title Styling */
+.section-title {
+    position: relative;
+    display: inline-block;
+    /* To make underline only span text width */
+    padding-bottom: 8px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, theme('colors.neon-blue'), transparent);
+    border-radius: 2px;
+    box-shadow: 0 0 8px theme('colors.neon-blue');
+}
+
+/* CTA Button Styling */
+.cta-button {
+    /* Base styles handled by Tailwind */
+}
+
+/* Feature List Styling */
+.feature-list li {
+    position: relative;
+    padding-left: 1.8em;
+    /* Space for icon */
+}
+
+.feature-list li i {
+    position: absolute;
+    left: 0;
+    top: 0.25em;
+    /* Adjust vertical alignment */
+}
+
+/* Lore Panel Styling */
+.lore-panel[open] summary .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.lore-panel summary {
+    outline: none;
+    /* Remove default focus outline if desired */
+}
+
+/* Launch Button Styling */
+.launch-button {
+    /* Base styles handled by Tailwind */
+}
+
+/* News Card Hover Effect */
+.news-card {
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Social Icon Glow */
+.social-icon:hover i {
+    text-shadow: 0 0 10px theme('colors.neon-blue'), 0 0 15px theme('colors.neon-blue');
+}
+
+/* Terminal Cursor Animation */
+.terminal-cursor {
+    animation: terminal-cursor 1s steps(1) infinite;
+    /* Matches Tailwind config */
+}
+
+/* Animation Trigger Class (for JS) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

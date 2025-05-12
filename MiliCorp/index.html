@@ -1,0 +1,167 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiliCorp - Join the Initiative</title>
+    <link rel="stylesheet" href="5q1ngoabdh.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&amp;family=Roboto:wght@300;400&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <meta name="description" content="MiliCorp - A Star Citizen organization built on strength, strategy, and unity. Join our initiative today.">
+    <meta property="og:title" content="MiliCorp - Join the Initiative">
+    <meta property="og:description" content="Explore, trade, and dominate the verse with precision and pride. Join our elite Star Citizen organization.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="icon" href="images/MILICORP-Logo.svg" type="image/svg+xml">
+  <script src="https://lib.yourware.so/yourware-lib.umd.js" id="yourware-lib"></script></head>
+  <body>
+    <div class="video-background-scrollable">
+        <video autoplay="" muted="" loop="" playsinline="" id="bg-video">
+            <source src="bg-video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+    
+        <div class="video-banner-content">
+            <h1>Welcome to MiliCorp</h1>
+            <p class="tagline">Forging Success in the Black.</p>
+            <a href="#content-start" class="scroll-down-arrow"><i class="fas fa-chevron-down"></i></a>
+        </div>
+    </div>
+    
+    <div id="content-start" class="content-area"> 
+        <header class="site-header scrolled">
+            <nav class="navbar">
+                <div class="nav-container">
+                    <a href="#home" class="nav-logo">MiliCorp</a>
+                    <ul class="nav-menu">
+                        <li class="nav-item"><a href="#about" class="nav-link">About Us</a></li>
+                        <li class="nav-item"><a href="#operations" class="nav-link">Operations</a></li>
+                        <li class="nav-item"><a href="#join" class="nav-link btn btn-primary">Join Initiative</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section id="about" class="content-section animate-in">
+                <h2>Who We Are</h2>
+                <p id="quotes"><i>"Strength Through Structure. Power Through Precision"</i></p>
+
+                <p>Milicorp is a Star Citizen organization built on strength, strategy, and unity. We explore, trade, and dominate the
+                verse with precision and pride. Whether you're a fighter, trader, or explorer, there's a place for you in Milicorp. Join
+                us—your future among the stars starts here.</p>
+            </section>
+
+            <section id="operations" class="content-section alt-bg animate-in">
+                <h2>Core Operations</h2>
+                <p id="quotes"><i>Born from necessity. Strengthened by self-reliance. Driven by results.</i></p>
+                <div class="operations-grid">
+                    <div class="operation-item animate-in">
+                        <div class="operation-icon">
+                            <i class="fas fa-space-shuttle"></i>
+                        </div>
+                        <h3>Fleet Operations</h3>
+                        <p>High-value, high-risk operations across secured and contested systems.</p>
+                    </div>
+                    
+                    <div class="operation-item animate-in">
+                        <div class="operation-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Ground Operations</h3>
+                        <p>MiliCorp specializes in Advanced Ground Combat Operations, fighting for ground superiority.</p>
+                    </div>
+                    
+                    <div class="operation-item animate-in">
+                        <div class="operation-icon">
+                            <i class="fas fa-truck-loading"></i>
+                        </div>
+                        <h3>Industry and Logistics</h3>
+                        <p>Streamlining supply chains and providing tactical support for allied operations and large-scale fleet
+                            movements.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="join" class="content-section animate-in">
+                <h2>Answer the Call: Join MiliCorp</h2>
+                <p id="bold">Are you prepared to operate at the highest level?</p>
+                <div class="cta-container">
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSczQSrVWcn2HfVSX6ZnLZQ6APtYVz2jRryWYFTq5qH7MFh8dw/viewform" class="btn btn-cta" target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-rocket"></i> Initiate Application
+                    </a>
+                    <a href="https://discord.gg/Md8f4bjjPX" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-discord"></i> Join Discord
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer-bottom">
+            <div class="footer-content">
+                <div class="social-links">
+                    <a href="https://discord.gg/Md8f4bjjPX" class="social-link"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitch"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+                <p>© 2954 MiliCorp. Dominating the Verse.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Add a class to the header when scrolling
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.site-header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#home' || targetId === '#') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const headerOffset = document.querySelector('.site-header')?.offsetHeight || 0;
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = elementPosition - headerOffset - 20;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                }
+            });
+        });
+
+        // Add animation to elements when they come into view
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.content-section, .operation-item').forEach(element => {
+            observer.observe(element);
+        });
+    </script>
+  
+</body></html>

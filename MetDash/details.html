@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>METAR Details</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <main class="container">
+        <div id="details-container">
+            <a href="index.html" class="back-button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M19 12H5"></path>
+                    <path d="M12 19l-7-7 7-7"></path>
+                </svg>
+                Back to Stations
+            </a>
+
+            <div class="station-header">
+                <h2 id="station-code" class="loading-details">Loading...</h2>
+            </div>
+
+            <div id="station-name" class="timestamp"></div>
+            <div id="observation-time" class="timestamp"></div>
+
+            <div id="metar-status" class="metar-status">
+                <div class="status-indicator"></div>
+                <span id="status-text">No data available</span>
+            </div>
+
+            <div class="data-section">
+                <h3 class="section-title">Weather Summary</h3>
+                <div class="metar-grid" id="metar-summary">
+                    <!-- Weather data cards will be inserted here -->
+                </div>
+            </div>
+
+            <div class="data-section">
+                <h3 class="section-title">Cloud Conditions</h3>
+                <div id="cloud-conditions" class="clouds-container">
+                    <!-- Cloud data will be inserted here -->
+                </div>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Raw METAR</h3>
+                <pre id="full-raw" class="loading-details">Loading raw METAR data...</pre>
+            </div>
+
+            <div class="section">
+                <h3 class="section-title">Decoded Information</h3>
+                <div id="decoded" class="loading-details">Loading decoded data...</div>
+            </div>
+        </div>
+    </main>
+
+    <script src="assets/js/details.js"></script>
+</body>
+
+</html>

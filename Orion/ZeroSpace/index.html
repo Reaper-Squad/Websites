@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Space - Explore. Conquer. Survive.</title>
+
+    <!-- Favicon (optional but recommended) -->
+    <link rel="icon" href="assets/icons/favicon.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome (for icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Configure Tailwind (Optional: inline for simplicity) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'orbitron': ['Orbitron', 'sans-serif'],
+                        'exo': ['"Exo 2"', 'sans-serif'],
+                    },
+                    colors: {
+                        'space-black': '#0a0a0f',
+                        'neon-blue': '#00ffff',
+                        'neon-purple': '#ff00ff',
+                        'neon-green': '#39ff14',
+                        'dark-blue': '#1a1a3d',
+                        'light-gray': '#cccccc',
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 15px #00ffff',
+                        'glow-purple': '0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 15px #ff00ff',
+                        'glow-green': '0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 15px #39ff14',
+                    },
+                    animation: {
+                        'starfield': 'starfield 50s linear infinite',
+                        'pulse-glow': 'pulse-glow 2s infinite ease-in-out',
+                        'fade-in-up': 'fade-in-up 0.8s ease-out forwards',
+                        'terminal-cursor': 'terminal-cursor 1s steps(1) infinite'
+                    },
+                    keyframes: {
+                        starfield: {
+                            '0%': { backgroundPosition: '0 0' },
+                            '100%': { backgroundPosition: '0 600px' }, // Adjust size as needed
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+                            '50%': { opacity: '0.7', transform: 'scale(1.05)' },
+                        },
+                        'fade-in-up': {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        'terminal-cursor': {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-space-black text-light-gray font-exo leading-relaxed overflow-x-hidden">
+
+    <!-- Starfield Background -->
+    <div class="starfield-bg fixed inset-0 z-[-1]"></div>
+
+    <!-- Header / Navigation (Optional - can be integrated into Hero) -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-space-black/80 backdrop-blur-sm shadow-md hidden md:block">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#"
+                class="text-2xl font-orbitron font-bold text-white hover:text-neon-blue transition duration-300">
+                ZERO<span class="text-neon-blue">SPACE</span>
+            </a>
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="hover:text-neon-blue transition duration-300">About</a></li>
+                <li><a href="#media" class="hover:text-neon-blue transition duration-300">Media</a></li>
+                <li><a href="#lore" class="hover:text-neon-blue transition duration-300">Lore</a></li>
+                <li><a href="#play" class="hover:text-neon-blue transition duration-300">Play</a></li>
+                <li><a href="#news" class="hover:text-neon-blue transition duration-300">News</a></li>
+                <li><a href="#community" class="hover:text-neon-blue transition duration-300">Community</a></li>
+            </ul>
+            <button id="openTerminalBtn"
+                class="px-4 py-2 border border-neon-green text-neon-green rounded hover:bg-neon-green hover:text-space-black hover:shadow-glow-green transition duration-300 text-sm">
+                <i class="fas fa-terminal mr-1"></i> Launch Terminal
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero"
+        class="min-h-screen flex flex-col items-center justify-center text-center px-4 relative overflow-hidden pt-20 md:pt-0">
+        <!-- Optional additional background layer for parallax -->
+        <div class="absolute inset-0 z-0 opacity-30 hero-bg-animation"></div>
+
+        <div class="z-10 relative">
+            <img src="assets/icons/logo.png" alt="Zero Space Logo"
+                class="w-48 md:w-64 mx-auto mb-4 animate-pulse-glow">
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-orbitron font-bold mb-4 title-glow">
+                ZERO<span class="text-neon-blue">SPACE</span>
+            </h1>
+            <p class="text-xl md:text-2xl lg:text-3xl mb-8 font-light text-gray-400">
+                Explore. Conquer. Survive.
+            </p>
+            <a href="#play"
+                class="cta-button inline-block px-8 py-4 bg-neon-blue text-space-black font-bold rounded hover:bg-white hover:shadow-glow-blue transition duration-300 text-lg transform hover:scale-105">
+                Join the Mission <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+        <!-- Scroll Down Indicator (Optional) -->
+        <a href="#about"
+            class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-gray-500 hover:text-neon-blue animate-bounce z-10">
+            <i class="fas fa-chevron-down fa-2x"></i>
+        </a>
+    </section>
+
+    <!-- About the Game Section -->
+    <section id="about" class="py-20 px-6 container mx-auto scroll-mt-16">
+        <h2 class="section-title text-4xl font-orbitron font-bold text-center mb-12 title-glow-subtle">About Zero Space
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div class="animate-on-scroll">
+                <p class="mb-6 text-lg">
+                    Zero Space thrusts you into a vast, procedurally generated universe teeming with danger and
+                    opportunity. Take command of your custom starship, engage in thrilling combat, explore uncharted
+                    systems, build formidable bases, and forge alliances (or rivalries) in a dynamic multiplayer
+                    sandbox.
+                </p>
+                <h3 class="text-2xl font-orbitron font-semibold mb-4 text-neon-purple">Key Features:</h3>
+                <ul class="space-y-3 feature-list">
+                    <li><i class="fas fa-rocket text-neon-blue mr-2"></i> Fast-paced PvP and PvE space combat</li>
+                    <li><i class="fas fa-atom text-neon-blue mr-2"></i> Explore infinitely generated galaxies</li>
+                    <li><i class="fas fa-wrench text-neon-blue mr-2"></i> Deep ship customization & upgrade system</li>
+                    <li><i class="fas fa-users text-neon-blue mr-2"></i> Form guilds, join factions, dominate the
+                        economy</li>
+                    <li><i class="fas fa-cogs text-neon-blue mr-2"></i> Strategic base building and resource management
+                    </li>
+                </ul>
+            </div>
+        <div class="animate-on-scroll flex justify-center">
+            <video src="assets/images/bot.webm" autoplay loop muted playsinline
+                class="w-[360px] max-w-full h-auto object-contain">
+            </video>
+        </div>
+
+
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section id="media" class="py-20 px-6 bg-dark-blue/50 scroll-mt-16">
+        <div class="container mx-auto">
+            <h2 class="section-title text-4xl font-orbitron font-bold text-center mb-12 title-glow-subtle">Visuals &
+                Media</h2>
+
+            <!-- Optional Video Trailer -->
+            <div
+                class="mb-12 aspect-video max-w-4xl mx-auto rounded-lg overflow-hidden shadow-lg border border-neon-purple/30 animate-on-scroll">
+                <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=lqhx4F1f_jT-3k9A"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                <!-- Replace with actual trailer URL -->
+            </div>
+
+            <h3 class="text-2xl font-orbitron text-center mb-8">In-Game Screenshots</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 gallery">
+                <div class="flex items-center justify-center">
+                </div>
+                <div class="bg-dark-blue p-4 rounded-md shadow-md border border-neon-blue/30 w-[480px] max-w-full aspect-video flex items-center justify-center">
+                    <p class="text-center col-span-full text-lg text-white opacity-70">Coming Soon</p>
+                </div>
+                <!-- Replace with actual screenshots -->
+                <!-- <img src="assets/images/screenshot-1.jpg" alt="Screenshot 1"
+                    class="gallery-item w-full h-auto rounded-md shadow-md hover:scale-105 hover:shadow-glow-blue transition duration-300 cursor-pointer animate-on-scroll">
+                <img src="assets/images/screenshot-2.jpg" alt="Screenshot 2"
+                    class="gallery-item w-full h-auto rounded-md shadow-md hover:scale-105 hover:shadow-glow-blue transition duration-300 cursor-pointer animate-on-scroll">
+                <img src="assets/images/screenshot-3.jpg" alt="Screenshot 3"
+                    class="gallery-item w-full h-auto rounded-md shadow-md hover:scale-105 hover:shadow-glow-blue transition duration-300 cursor-pointer animate-on-scroll">
+                <img src="assets/images/screenshot-1.jpg" alt="Screenshot 4"
+                    class="gallery-item w-full h-auto rounded-md shadow-md hover:scale-105 hover:shadow-glow-blue transition duration-300 cursor-pointer animate-on-scroll">
+                <img src="assets/images/screenshot-2.jpg" alt="Screenshot 5"
+                    class="gallery-item w-full h-auto rounded-md shadow-md hover:scale-105 hover:shadow-glow-blue transition duration-300 cursor-pointer animate-on-scroll">
+                <img src="assets/images/screenshot-3.jpg" alt="Screenshot 6"
+                    class="gallery-item w-full h-auto rounded-md shadow-md hover:scale-105 hover:shadow-glow-blue transition duration-300 cursor-pointer animate-on-scroll"> -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Lore / Universe Section -->
+    <section id="lore" class="py-20 px-6 container mx-auto scroll-mt-16">
+        <h2 class="section-title text-4xl font-orbitron font-bold text-center mb-12 title-glow-subtle">The Universe of
+            Zero Space</h2>
+        <p class="text-center max-w-3xl mx-auto mb-12 text-lg animate-on-scroll">
+            In the aftermath of the Great Collapse, humanity scattered across the stars. Now, centuries later, new
+            factions rise, ancient technologies resurface, and the silent void known as Zero Space holds secrets both
+            wondrous and terrifying. Discover the history, factions, and mysteries that shape your journey.
+        </p>
+        <div class="max-w-4xl mx-auto space-y-4 animate-on-scroll">
+            <!-- Collapsible Panels (using details/summary for static site simplicity) -->
+            <details
+                class="lore-panel bg-dark-blue/60 border border-neon-purple/30 rounded-lg overflow-hidden transition duration-300">
+                <summary
+                    class="font-orbitron text-xl p-4 cursor-pointer hover:bg-neon-purple/20 flex justify-between items-center">
+                    <span><i class="fas fa-users-cog mr-2 text-neon-purple"></i> Factions</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </summary>
+                <div class="p-4 border-t border-neon-purple/30">
+                    <p>Learn about the major powers vying for control: the technologically advanced Cygnus Combine, the
+                        resource-hungry Orion Syndicate, the enigmatic Void Walkers, and the independent Free Colonies.
+                    </p>
+                    <!-- Add more details -->
+                </div>
+            </details>
+            <details
+                class="lore-panel bg-dark-blue/60 border border-neon-purple/30 rounded-lg overflow-hidden transition duration-300">
+                <summary
+                    class="font-orbitron text-xl p-4 cursor-pointer hover:bg-neon-purple/20 flex justify-between items-center">
+                    <span><i class="fas fa-book-open mr-2 text-neon-purple"></i> History: The Great Collapse</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </summary>
+                <div class="p-4 border-t border-neon-purple/30">
+                    <p>Uncover the events that led to the fall of the Terran Federation and the subsequent diaspora into
+                        the unknown reaches of Zero Space.</p>
+                    <!-- Add more details -->
+                </div>
+            </details>
+            <details
+                class="lore-panel bg-dark-blue/60 border border-neon-purple/30 rounded-lg overflow-hidden transition duration-300">
+                <summary
+                    class="font-orbitron text-xl p-4 cursor-pointer hover:bg-neon-purple/20 flex justify-between items-center">
+                    <span><i class="fas fa-pastafarianism mr-2 text-neon-purple"></i> Alien Species & Anomalies</span>
+                    <i class="fas fa-chevron-down transition-transform duration-300"></i>
+                </summary>
+                <div class="p-4 border-t border-neon-purple/30">
+                    <p>Not all life in Zero Space is human. Encounter strange alien species, navigate cosmic phenomena,
+                        and explore remnants of precursor civilizations.</p>
+                    <!-- Add more details -->
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- Play / Download Section -->
+    <section id="play" class="py-20 px-6 bg-space-black/80 scroll-mt-16">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title text-4xl font-orbitron font-bold mb-12 title-glow-subtle">Get Ready for Launch</h2>
+            <!-- Countdown Timer (Example) -->
+            <div id="countdown" class="text-2xl md:text-4xl font-orbitron mb-10 text-neon-green animate-on-scroll">
+                Launching in: <span id="countdown-timer">--d --h --m --s</span>
+            </div>
+
+            <p class="text-lg mb-8 animate-on-scroll">Zero Space is coming soon. Prepare to embark on your journey!</p>
+            <div class="flex flex-wrap justify-center gap-6 mb-10 animate-on-scroll">
+                <a href="#"
+                    class="launch-button flex items-center justify-center gap-3 px-6 py-3 border-2 border-neon-green text-neon-green font-bold rounded hover:bg-neon-green hover:text-space-black hover:shadow-glow-green transition duration-300 transform hover:scale-105">
+                    <i class="fab fa-steam fa-lg"></i> Wishlist on Steam
+                </a>
+                <a href="#"
+                    class="launch-button flex items-center justify-center gap-3 px-6 py-3 border-2 border-gray-500 text-gray-500 font-bold rounded cursor-not-allowed">
+                    <i class="fas fa-download fa-lg"></i> Direct Download (Soon)
+                </a>
+                <!-- Add other platforms as needed -->
+            </div>
+            <div class="text-sm text-gray-500 animate-on-scroll">
+                <p>System Requirements (Preliminary):</p>
+                <p>OS: Windows 10/11 | Processor: Intel Core i5 / AMD Ryzen 5 | Memory: 16 GB RAM | Graphics: NVIDIA GTX
+                    1060 / AMD RX 580 | Storage: 50 GB available space</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Developer Updates / News Section -->
+    <section id="news" class="py-20 px-6 container mx-auto scroll-mt-16">
+        <h2 class="section-title text-4xl font-orbitron font-bold text-center mb-12 title-glow-subtle">Latest
+            Transmissions</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- News Card Example 1 -->
+            <div
+                class="news-card bg-dark-blue/60 p-6 rounded-lg border border-neon-blue/30 hover:border-neon-blue transition duration-300 animate-on-scroll">
+                <p class="text-sm text-neon-blue mb-2">July 20, 2024</p>
+                <h3 class="text-xl font-orbitron font-semibold mb-3">Dev Log #5: Ship Customization Deep Dive</h3>
+                <p class="text-gray-400 mb-4 text-sm">We're showcasing the latest updates to the ship builder, including
+                    new modules and cosmetic options...</p>
+                <a href="#" class="text-neon-blue hover:underline">Read More <i class="fas fa-angle-right ml-1"></i></a>
+            </div>
+            <!-- News Card Example 2 -->
+            <div class="news-card bg-dark-blue/60 p-6 rounded-lg border border-neon-blue/30 hover:border-neon-blue transition duration-300 animate-on-scroll"
+                style="animation-delay: 0.1s;">
+                <p class="text-sm text-neon-blue mb-2">July 10, 2024</p>
+                <h3 class="text-xl font-orbitron font-semibold mb-3">Patch Notes v0.2.1 Alpha</h3>
+                <p class="text-gray-400 mb-4 text-sm">Addressing community feedback: performance improvements, bug
+                    fixes, and balancing changes for early testers...</p>
+                <a href="#" class="text-neon-blue hover:underline">Read More <i class="fas fa-angle-right ml-1"></i></a>
+            </div>
+            <!-- News Card Example 3 -->
+            <div class="news-card bg-dark-blue/60 p-6 rounded-lg border border-neon-blue/30 hover:border-neon-blue transition duration-300 animate-on-scroll"
+                style="animation-delay: 0.2s;">
+                <p class="text-sm text-neon-blue mb-2">June 28, 2024</p>
+                <h3 class="text-xl font-orbitron font-semibold mb-3">Universe Spotlight: The Orion Nebula</h3>
+                <p class="text-gray-400 mb-4 text-sm">Take a glimpse into one of the key regions you'll be able to
+                    explore in Zero Space, filled with hazards and secrets...</p>
+                <a href="#" class="text-neon-blue hover:underline">Read More <i class="fas fa-angle-right ml-1"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join the Community Section -->
+    <section id="community" class="py-20 px-6 bg-dark-blue/50 scroll-mt-16">
+        <div class="container mx-auto text-center">
+            <h2 class="section-title text-4xl font-orbitron font-bold mb-8 title-glow-subtle">Join the Fleet</h2>
+            <p class="text-lg mb-10 max-w-2xl mx-auto animate-on-scroll">
+                Connect with fellow pilots, share your experiences, get the latest updates, and shape the future of Zero
+                Space!
+            </p>
+            <div class="flex justify-center items-center space-x-6 md:space-x-8 mb-12 animate-on-scroll">
+                <a href="#" target="_blank"
+                    class="social-icon text-gray-400 hover:text-neon-blue transition duration-300 text-4xl md:text-5xl"
+                    title="Discord">
+                    <i class="fab fa-discord"></i>
+                </a>
+                <a href="#" target="_blank"
+                    class="social-icon text-gray-400 hover:text-neon-blue transition duration-300 text-4xl md:text-5xl"
+                    title="Twitter / X">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" target="_blank"
+                    class="social-icon text-gray-400 hover:text-neon-blue transition duration-300 text-4xl md:text-5xl"
+                    title="Reddit">
+                    <i class="fab fa-reddit-alien"></i>
+                </a>
+                <a href="#" target="_blank"
+                    class="social-icon text-gray-400 hover:text-neon-blue transition duration-300 text-4xl md:text-5xl"
+                    title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+            </div>
+
+            <!-- Optional: Discord Widget Placeholder -->
+            <!-- Note: Official Discord widgets might have limitations on static sites. Consider a simple link or a third-party solution if needed. -->
+            <div class="max-w-sm mx-auto text-center animate-on-scroll">
+                <p class="text-gray-500">[ Placeholder for Discord Server Widget/Invite ]</p>
+                <!-- Example: Simple invite link -->
+                <a href="#"
+                    class="mt-4 inline-block px-6 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-500 transition duration-300"><i
+                        class="fab fa-discord mr-2"></i> Join Discord Server</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 px-6 bg-space-black border-t border-neon-blue/20">
+        <div class="container mx-auto text-center md:flex md:justify-between md:items-center text-sm text-gray-500">
+            <div class="mb-4 md:mb-0">
+                <span class="font-orbitron text-lg text-gray-400">ZERO<span class="text-neon-blue">SPACE</span></span>
+                <span class="ml-4">© 2024 Your Game Studio Name</span>
+            </div>
+            <div class="flex justify-center space-x-4 mb-4 md:mb-0">
+                <a href="#" class="hover:text-neon-blue transition duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-neon-blue transition duration-300">Terms of Use</a>
+            </div>
+            <div>
+                <a href="https://github.com/yourusername/zero-space-website" target="_blank"
+                    class="hover:text-neon-blue transition duration-300" title="GitHub Repository">
+                    <i class="fab fa-github fa-lg"></i> View on GitHub
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 flex items-center justify-center z-[100] hidden p-4">
+        <img id="lightbox-img" src="" alt="Lightbox Image" class="max-w-full max-h-full object-contain">
+        <button id="closeLightbox"
+            class="absolute top-5 right-5 text-white text-3xl hover:text-neon-red transition">×</button>
+    </div>
+
+    <!-- Terminal Modal -->
+    <div id="terminalModal" class="fixed inset-0 bg-black/90 z-[100] hidden flex items-center justify-center p-4">
+        <div
+            class="w-full max-w-3xl h-[70vh] bg-black border-2 border-neon-green shadow-glow-green rounded-lg overflow-hidden flex flex-col font-mono text-sm">
+            <div class="bg-gray-900 p-2 flex justify-between items-center border-b border-neon-green/50">
+                <span class="text-neon-green"> ZS_TERMINAL:/</span>
+                <button id="closeTerminalBtn" class="text-red-500 hover:text-red-300 text-xl">×</button>
+            </div>
+            <div id="terminalOutput" class="flex-grow p-4 overflow-y-auto text-neon-green">
+                <p>Connecting to ZeroSpace Network...</p>
+                <p>Connection established. Auth Required.</p>
+                <p>Enter command:</p>
+                <p>> <span id="terminalInput" class="inline-block"></span><span
+                        class="terminal-cursor inline-block w-2 h-4 bg-neon-green ml-1 align-bottom"></span></p>
+                <!-- Simulated output goes here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

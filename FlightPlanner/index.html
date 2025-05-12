@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VFR Flight Planning Sheet</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f4f4f9;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ddd;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+
+    .section-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-bottom: 2px solid #007bff;
+      margin-bottom: 10px;
+      padding-bottom: 5px;
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .form-group {
+      flex: 1;
+      margin-right: 10px;
+      min-width: 200px;
+    }
+
+    .form-group:last-child {
+      margin-right: 0;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      resize: none;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+    }
+
+    td input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+
+    button {
+      background: #007bff;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .save-button {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .save-button button {
+      font-size: 1rem;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>VFR Flight Planning Sheet</h1>
+
+    <!-- Flight Information Section -->
+    <div class="section">
+      <div class="section-title">Flight Information</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="flightNumber">Flight Number:</label>
+          <input type="text" id="flightNumber" name="flightNumber">
+        </div>
+        <div class="form-group">
+          <label for="aircraftType">Aircraft Type:</label>
+          <input type="text" id="aircraftType" name="aircraftType">
+        </div>
+        <div class="form-group">
+          <label for="altitude">Cruising Altitude:</label>
+          <input type="text" id="altitude" name="altitude">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="departure">Departure Location:</label>
+          <input type="text" id="departure" name="departure">
+        </div>
+        <div class="form-group">
+          <label for="destination">Destination:</label>
+          <input type="text" id="destination" name="destination">
+        </div>
+        <div class="form-group">
+          <label for="departureTime">Departure Time:</label>
+          <input type="datetime-local" id="departureTime" name="departureTime">
+        </div>
+      </div>
+    </div>
+
+    <!-- Fuel Planning Section -->
+    <div class="section">
+      <div class="section-title">Fuel Planning</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="totalFuel">Total Fuel Onboard (Usable):</label>
+          <input type="number" id="totalFuel" name="totalFuel" placeholder="Gallons">
+        </div>
+        <div class="form-group">
+          <label for="fuelConsumption">Expected Fuel Consumption (GPH):</label>
+          <input type="number" id="fuelConsumption" name="fuelConsumption" placeholder="GPH">
+        </div>
+        <div class="form-group">
+          <label for="fuelReserve">Fuel Reserve Requirements:</label>
+          <input type="number" id="fuelReserve" name="fuelReserve" placeholder="Gallons">
+        </div>
+      </div>
+    </div>
+
+    <!-- Weather Information Section -->
+    <div class="section">
+      <div class="section-title">Flight Weather Information</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="weatherBriefing">Weather Briefing:</label>
+          <textarea id="weatherBriefing" name="weatherBriefing" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="departureMETAR">Departure METAR:</label>
+          <textarea id="departureMETAR" name="departureMETAR" rows="2"></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="enrouteMETAR">En-route METAR:</label>
+          <textarea id="enrouteMETAR" name="enrouteMETAR" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="destinationMETAR">Destination METAR:</label>
+          <textarea id="destinationMETAR" name="destinationMETAR" rows="2"></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="windsAloft">Winds Aloft (Altitude):</label>
+          <input type="text" id="windsAloft" name="windsAloft" placeholder="Altitude & Wind Speed">
+        </div>
+        <div class="form-group">
+          <label for="weatherHazards">Weather Hazards:</label>
+          <textarea id="weatherHazards" name="weatherHazards" rows="2"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTAMs Section -->
+    <div class="section">
+      <div class="section-title">NOTAMs</div>
+      <textarea id="notams" name="notams" rows="4" placeholder="Enter NOTAMs here..."></textarea>
+    </div>
+
+    <!-- Navigation and Route Section -->
+    <div class="section">
+      <div class="section-title">Navigation and Route</div>
+      <table id="navigationLog" border="1" cellspacing="0" cellpadding="5">
+        <thead>
+          <tr>
+            <th>Waypoint</th>
+            <th>Distance (NM)</th>
+            <th>Heading</th>
+            <th>Ground Speed (KTS)</th>
+            <th>ETE (Time)</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" name="waypoint" placeholder="Enter Waypoint"></td>
+            <td><input type="number" name="distance" placeholder="NM"></td>
+            <td><input type="text" name="heading" placeholder="°"></td>
+            <td><input type="number" name="groundSpeed" placeholder="KTS"></td>
+            <td><input type="text" name="ete" placeholder="Time"></td>
+            <td><button type="button" onclick="removeRow(this)">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" onclick="addRow()">Add Waypoint</button>
+    </div>
+
+    <!-- Alternate Airports Section -->
+    <div class="section">
+      <div class="section-title">Alternate Airports</div>
+      <textarea id="alternateAirports" name="alternateAirports" rows="2" placeholder="Enter alternate airports here..."></textarea>
+    </div>
+
+    <!-- Performance and Risk Factors Section -->
+    <div class="section">
+      <div class="section-title">Performance and Risk Factors</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="runwayRequirements">Runway Requirements:</label>
+          <textarea id="runwayRequirements" name="runwayRequirements" rows="2"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="emergencyProcedures">Emergency Procedures:</label>
+          <textarea id="emergencyProcedures" name="emergencyProcedures" rows="2"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Time-Specific Information Section -->
+    <div class="section">
+      <div class="section-title">Time-Specific Information</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="ete">Estimated Time Enroute:</label>
+          <input type="text" id="ete" name="ete" placeholder="Hours and Minutes">
+        </div>
+        <div class="form-group">
+          <label for="arrivalTime">Arrival Time:</label>
+          <input type="datetime-local" id="arrivalTime" name="arrivalTime">
+        </div>
+      </div>
+    </div>
+
+    <!-- Pilot & Crew Information Section -->
+    <div class="section">
+      <div class="section-title">Pilot & Crew Information</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="pic">Pilot in Command:</label>
+          <input type="text" id="pic" name="pic">
+        </div>
+        <div class="form-group">
+          <label for="passengers">Total Passengers:</label>
+          <input type="number" id="passengers" name="passengers">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="passengerWeights">Passenger Weights:</label>
+          <input type="text" id="passengerWeights" name="passengerWeights" placeholder="Enter weights of passengers">
+        </div>
+      </div>
+    </div>
+
+    <!-- Radio Frequencies Section -->
+    <div class="section">
+      <div class="section-title">Radio Frequencies</div>
+      <textarea id="radioFrequencies" name="radioFrequencies" rows="3" placeholder="Enter frequencies here..."></textarea>
+    </div>
+
+    <!-- Additional Notes Section -->
+    <div class="section">
+      <div class="section-title">Additional Notes</div>
+      <textarea id="additionalNotes" name="additionalNotes" rows="3" placeholder="Enter any additional notes here..."></textarea>
+    </div>
+
+    <!-- Save Button -->
+    <div class="save-button">
+      <button type="button" onclick="saveAsJSON()">Save as JSON</button>
+    </div>
+  </div>
+
+  <script>
+    function addRow() {
+      const table = document.getElementById('navigationLog').getElementsByTagName('tbody')[0];
+      const newRow = table.insertRow();
+
+      newRow.innerHTML = `
+        <td><input type="text" name="waypoint" placeholder="Enter Waypoint"></td>
+        <td><input type="number" name="distance" placeholder="NM"></td>
+        <td><input type="text" name="heading" placeholder="°"></td>
+        <td><input type="number" name="groundSpeed" placeholder="KTS"></td>
+        <td><input type="text" name="ete" placeholder="Time"></td>
+        <td><button type="button" onclick="removeRow(this)">Remove</button></td>
+      `;
+    }
+
+    function removeRow(button) {
+      const row = button.parentElement.parentElement;
+      row.parentElement.removeChild(row);
+    }
+
+    function saveAsJSON() {
+      const form = document.querySelector('.container');
+      const inputs = form.querySelectorAll('input, textarea');
+      const data = {};
+
+      inputs.forEach(input => {
+        if (input.closest('table') === null) {
+          data[input.name] = input.value;
+        }
+      });
+
+      const table = document.getElementById('navigationLog');
+      const rows = table.querySelectorAll('tbody tr');
+      data.navigationLog = Array.from(rows).map(row => {
+        const cells = row.querySelectorAll('input');
+        return {
+          waypoint: cells[0].value,
+          distance: cells[1].value,
+          heading: cells[2].value,
+          groundSpeed: cells[3].value,
+          ete: cells[4].value
+        };
+      });
+
+      const jsonData = JSON.stringify(data, null, 2);
+      const blob = new Blob([jsonData], { type: 'application/json' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `flight-plan-${Date.now()}.json`;
+      link.click();
+    }
+  </script>
+</body>
+</html>
