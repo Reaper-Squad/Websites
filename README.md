@@ -7,12 +7,12 @@ _Replace each `<path/to/...>` with the correct relative path or full GitHub URL.
 
 ## 🎓 On-boarding Sites
 - [MiliCorp On-boarding Site](</MiliCorp/>)  
-- [Valkyrie On-boarding (Orion)](<Websites/Orion/Valkyries/>)  
-- [Zero Space Website (Orion)](<Websites/Orion/ZeroSpace/>)
+- [Valkyrie On-boarding (Orion)](</Orion/Valkyries/>)  
+- [Zero Space Website (Orion)](</Orion/ZeroSpace/>)
 
 ## ✈️ Aviation Sites
-- [MetDash](<Websites/MetDash/>)  
-- [Flight Planner](<Websites/FlightPlanner>)
+- [MetDash](</MetDash/>)  
+- [Flight Planner](</FlightPlanner>)
 
 ## 💼 Client Sites
-- [Reaper Squad (PIRS)](<Websites/FlightPlanner/>)
+- [Reaper Squad (PIRS)](</FlightPlanner/>)
