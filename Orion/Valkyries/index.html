@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orion Drift Recruitment Center - Join the Future</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("9H8J68bo5drm0Isre"); // Replace with your EmailJS public key
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'orion-deep-blue': '#0a192f',
+                        'orion-cyan': '#64ffda',
+                        'orion-light-slate': '#ccd6f6',
+                        'orion-slate': '#8892b0',
+                        'orion-dark-slate': '#495670'
+                    },
+                    fontFamily: {
+                        'sans': ['Rajdhani', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', '"Helvetica Neue"', 'Arial', '"Noto Sans"', 'sans-serif', '"Apple Color Emoji"', '"Segoe UI Emoji"', '"Segoe UI Symbol"', '"Noto Color Emoji"'],
+                        'mono': ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace']
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'subtle-float': 'subtleFloat 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        subtleFloat: {
+                            '0%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                            '100%': { transform: 'translateY(0px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-orion-deep-blue text-orion-light-slate font-sans antialiased">
+
+    <header
+        class="fixed top-0 left-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-orion-deep-blue/80 shadow-md"
+        id="navbar">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-orion-cyan hover:text-white transition-colors">
+                <i class="fa-solid fa-atom mr-2"></i> Valkyries
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="#https://discord.gg/R5cNZdfY3H" class="text-orion-slate hover:text-orion-cyan transition-colors text-lg">Discord</a>
+                <a href="#about" class="text-orion-slate hover:text-orion-cyan transition-colors text-lg">About</a>
+                <a href="#divisions"
+                    class="text-orion-slate hover:text-orion-cyan transition-colors text-lg">Divisions</a>
+                <a href="#testimonials"
+                    class="text-orion-slate hover:text-orion-cyan transition-colors text-lg">Testimonials</a>
+                <a href="#join"
+                    class="bg-orion-cyan/10 text-orion-cyan border border-orion-cyan px-5 py-2 rounded hover:bg-orion-cyan/20 transition-colors font-medium text-base">
+                    Join Now
+                </a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-orion-slate focus:outline-none">
+                <i class="fas fa-bars text-3xl"></i>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-orion-deep-blue/95 border-t border-orion-dark-slate/50">
+            <a href="https://discord.gg/R5cNZdfY3H" 
+                class="block py-3 px-6 text-orion-slate hover:text-orion-cyan transition-colors text-lg">Discord</a>
+            <a href="#about"
+                class="block py-3 px-6 text-orion-slate hover:text-orion-cyan transition-colors text-lg">About Us</a>
+            <a href="#divisions"
+                class="block py-3 px-6 text-orion-slate hover:text-orion-cyan transition-colors text-lg">Divisions</a>
+            <a href="#testimonials"
+                class="block py-3 px-6 text-orion-slate hover:text-orion-cyan transition-colors text-lg">Testimonials</a>
+            <a href="#join"
+                class="block py-4 px-6 text-center bg-orion-cyan/10 text-orion-cyan border-t border-orion-cyan/30 hover:bg-orion-cyan/20 transition-colors font-medium text-lg">
+                Join Now
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero"
+            class="min-h-screen flex items-center justify-center text-center px-6 relative overflow-hidden hero-bg-image">
+            <div class="absolute inset-0 bg-orion-deep-blue/75 z-0"></div>
+            <div class="z-10 relative">
+                <h1 class="text-5xl sm:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
+                    <span class="text-orion-cyan">The</span> Valkyries
+                </h1>
+                <p class="text-xl md:text-3xl text-orion-slate mb-10 max-w-4xl mx-auto">
+                    Join the <span class="text-orion-light-slate font-medium">future</span>. Lead the <span
+                        class="text-orion-light-slate font-medium">drift</span>. Explore the <span
+                        class="text-orion-cyan">unknown</span> and shape the <span
+                        class="text-orion-cyan">destiny</span> of the cosmos.
+                </p>
+                <a href="#join"
+                    class="bg-orion-cyan text-orion-deep-blue px-10 py-4 rounded font-bold text-xl hover:bg-white hover:shadow-xl hover:shadow-orion-cyan/40 transition-all duration-300 transform hover:scale-105 inline-block">
+                    Apply to Join <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-pulse">
+                <a href="#about" aria-label="Scroll down">
+                    <i class="fas fa-chevron-down text-orion-slate text-3xl"></i>
+                </a>
+            </div>
+        </section>
+
+        <section id="about" class="py-24 md:py-40 px-6 container mx-auto scroll-target">
+            <h2 class="text-4xl md:text-6xl font-bold text-center mb-6">
+                About <span class="text-orion-cyan">The Valkyries</span>
+            </h2>
+            <p class="text-lg md:text-xl text-orion-slate text-center max-w-4xl mx-auto mb-16">
+                Forged in the crucible of <span class="text-orion-light-slate">Orion arenas</span>, the Valkyries are an advanced team of talented players, representing
+                 <span class="text-orion-cyan">team work, coordination, & positive sportmanship</span>
+                  
+            </p>
+            <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div class="md:pr-8">
+                    <h3 class="text-3xl lg:text-4xl font-semibold mb-4 text-orion-light-slate">Our Mission</h3>
+                    <p class="text-lg text-orion-slate mb-8">
+                        To become <span class="text-orion-light-slate">the best versions of ourselves</span> in and out of the arena.
+                        To forge bonds with our teamates, and <span class="text-orion-cyan">represent the Valkyries</span> throughout Orion.
+                    </p>
+                    <h3 class="text-3xl lg:text-4xl font-semibold mb-4 text-orion-light-slate">Our Values</h3>
+                    <ul class="list-none space-y-3 text-lg">
+                        <li class="flex items-start"><i class="fas fa-shield-alt text-orion-cyan mt-1 mr-3"></i>
+                            <div><strong class="text-orion-light-slate">Courage:</strong> Facing the void with
+                                unwavering resolve.</div>
+                        </li>
+                        <li class="flex items-start"><i class="fas fa-lightbulb text-orion-cyan mt-1 mr-3"></i>
+                            <div><strong class="text-orion-light-slate">Innovation:</strong> Pioneering technology and
+                                strategy.</div>
+                        </li>
+                        <li class="flex items-start"><i class="fas fa-users text-orion-cyan mt-1 mr-3"></i>
+                            <div><strong class="text-orion-light-slate">Unity:</strong> Strength found in collective
+                                ambition.</div>
+                        </li>
+                        <li class="flex items-start"><i class="fas fa-random text-orion-cyan mt-1 mr-3"></i>
+                            <div><strong class="text-orion-light-slate">Adaptability:</strong> Thriving amidst cosmic
+                                chaos.</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex justify-center items-center mt-8 md:mt-0">
+                    <div id="faction-emblem"
+                        class="w-72 h-72 md:w-80 md:h-80 bg-orion-dark-slate/30 rounded-full flex items-center justify-center border-4 border-orion-cyan/40 shadow-xl shadow-orion-cyan/10">
+                        <i class="fas fa-atom text-7xl text-orion-cyan opacity-80"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="divisions" class="py-24 md:py-40 px-6 relative divisions-bg-image scroll-target">
+            <div class="absolute inset-0 bg-orion-deep-blue/90 z-0"></div>
+            <div class="container mx-auto relative z-10">
+                <h2 class="text-4xl md:text-6xl font-bold text-center mb-20">
+                    Divisions & <span class="text-orion-cyan">Opportunities</span>
+                </h2>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div
+                        class="bg-slate-800/60 p-8 rounded-lg border border-slate-700/50 hover:border-orion-cyan/70 hover:shadow-xl hover:shadow-orion-cyan/15 transition-all duration-300 transform hover:-translate-y-3 backdrop-blur-sm">
+                        <div class="text-center mb-5">
+                            <i class="fas fa-feather-pointed text-5xl text-orion-cyan mb-4"></i>
+                            <h3 class="text-2xl lg:text-3xl font-bold text-orion-light-slate">Star Captain</h3>
+                        </div>
+                        <p class="text-orion-slate text-base lg:text-lg">
+                            Master the art of <span class="text-orion-light-slate">command</span>. Lead your squad of three elite players to victory after victory.
+                        </p>
+                    </div>
+                    <div
+                        class="bg-slate-800/60 p-8 rounded-lg border border-slate-700/50 hover:border-orion-cyan/70 hover:shadow-xl hover:shadow-orion-cyan/15 transition-all duration-300 transform hover:-translate-y-3 backdrop-blur-sm">
+                        <div class="text-center mb-5">
+                            <i class="fas fa-eye text-5xl text-orion-cyan mb-4"></i>
+                            <h3 class="text-2xl lg:text-3xl font-bold text-orion-light-slate">Overseer</h3>
+                        </div>
+                        <p class="text-orion-slate text-base lg:text-lg">
+                            Design, build, and maintain the fleet. <span class="text-orion-light-slate">Guide others to be the best versions of themselves</span>
+                        </p>
+                    </div>
+                    <div
+                        class="bg-slate-800/60 p-8 rounded-lg border border-slate-700/50 hover:border-orion-cyan/70 hover:shadow-xl hover:shadow-orion-cyan/15 transition-all duration-300 transform hover:-translate-y-3 backdrop-blur-sm">
+                        <div class="text-center mb-5">
+                            <i class="fas fa-compass text-5xl text-orion-cyan mb-4"></i>
+                            <h3 class="text-2xl lg:text-3xl font-bold text-orion-light-slate">Valkyrie</h3>
+                        </div>
+                        <p class="text-orion-slate text-base lg:text-lg">
+                            Be a part of something great, <span
+                                class="text-orion-light-slate">Orion Drift Valkyrie Team</span>, and forge friendships throughout the cosmos
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <section id="testimonials" class="py-24 md:py-40 px-6 container mx-auto scroll-target">
+            <h2 class="text-4xl md:text-6xl font-bold text-center mb-20">
+                Voices from the <span class="text-orion-cyan">Drift</span>
+            </h2>
+            <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <blockquote class="bg-slate-800/30 p-8 rounded-lg border-l-4 border-orion-cyan shadow-lg">
+                    <p class="text-lg lg:text-xl text-orion-slate italic mb-6">
+                        "Joining Orion Drift wasn't just signing up; it was embracing a <span
+                            class="text-orion-light-slate">purpose larger than myself</span>. The camaraderie here is
+                        unmatched, forged in the shared challenges of the void."
+                    </p>
+                    <footer class="text-orion-light-slate font-medium text-lg">- Cmdr. Alexia Volkov, <span
+                            class="text-orion-slate text-base font-normal">Lead Pilot</span></footer>
+                </blockquote>
+                <blockquote class="bg-slate-800/30 p-8 rounded-lg border-l-4 border-orion-cyan shadow-lg">
+                    <p class="text-lg lg:text-xl text-orion-slate italic mb-6">
+                        "The tech we work with is lightyears ahead. Every day presents a new problem to solve, a new
+                        boundary to push. It's <span class="text-orion-light-slate">demanding, but incredibly
+                            rewarding</span>."
+                    </p>
+                    <footer class="text-orion-light-slate font-medium text-lg">- Dr. Kenji Tanaka, <span
+                            class="text-orion-slate text-base font-normal">Chief Propulsion Engineer</span></footer>
+                </blockquote>
+            </div>
+        </section>
+
+        <section id="join"
+            class="py-24 md:py-40 px-6 bg-gradient-to-b from-orion-deep-blue/50 to-orion-deep-blue scroll-target">
+            <div class="container mx-auto text-center">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">
+                    Ready to Join the <span class="text-orion-cyan">Drift</span>?
+                </h2>
+                <p class="text-lg md:text-xl text-orion-slate max-w-3xl mx-auto mb-12">
+                    If you possess the <span class="text-orion-light-slate">skill</span>, the <span
+                        class="text-orion-light-slate">courage</span>, and the <span
+                        class="text-orion-light-slate">ambition</span> to navigate the unknown, your journey starts
+                    here. Submit your application or join our communication hub.
+                </p>
+
+                <div
+                    class="max-w-xl mx-auto bg-slate-800/60 p-8 md:p-10 rounded-lg border border-slate-700/50 shadow-xl">
+                    <form action="#" method="POST">
+                        <div class="mb-6">
+                            <label for="name" class="block text-left mb-2 text-base font-medium text-orion-slate">Full
+                                Name</label>
+                            <input type="text" id="name" name="name" required
+                                class="w-full bg-slate-700/50 border border-slate-600 text-orion-light-slate p-3 rounded focus:ring-2 focus:ring-orion-cyan focus:border-orion-cyan outline-none transition-all text-lg"
+                                placeholder="Your Given Name">
+                        </div>
+                        <div class="mb-6">
+                            <label for="callsign"
+                                class="block text-left mb-2 text-base font-medium text-orion-slate">Callsign /
+                                Alias</label>
+                            <input type="text" id="callsign" name="callsign" required
+                                class="w-full bg-slate-700/50 border border-slate-600 text-orion-light-slate p-3 rounded focus:ring-2 focus:ring-orion-cyan focus:border-orion-cyan outline-none transition-all text-lg"
+                                placeholder="e.g., 'Nova', 'Wraith'">
+                        </div>
+                        <div class="mb-6">
+                            <label for="email"
+                                class="block text-left mb-2 text-base font-medium text-orion-slate">Contact
+                                Email</label>
+                            <input type="email" id="email" name="email" required
+                                class="w-full bg-slate-700/50 border border-slate-600 text-orion-light-slate p-3 rounded focus:ring-2 focus:ring-orion-cyan focus:border-orion-cyan outline-none transition-all text-lg"
+                                placeholder="your-secure@channel.com">
+                        </div>
+                        <div class="mb-8">
+                            <label for="reason" class="block text-left mb-2 text-base font-medium text-orion-slate">Why
+                                Orion Drift?</label>
+                            <textarea id="reason" name="reason" rows="5" required
+                                class="w-full bg-slate-700/50 border border-slate-600 text-orion-light-slate p-3 rounded focus:ring-2 focus:ring-orion-cyan focus:border-orion-cyan outline-none transition-all text-lg"
+                                placeholder="Briefly explain your interest and relevant skills..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="bg-orion-cyan text-orion-deep-blue px-10 py-4 rounded font-bold text-xl hover:bg-white hover:shadow-xl hover:shadow-orion-cyan/40 transition-all duration-300 transform hover:scale-105 w-full">
+                            Submit Application
+                        </button>
+                    </form>
+                    <p class="text-orion-slate mt-8 text-base">
+                        Alternatively, join our <a href="https://discord.gg/R5cNZdfY3H"
+                            class="text-orion-cyan hover:underline font-medium">Recruitment Discord <i
+                                class="fa-brands fa-discord ml-1"></i></a> for direct inquiries.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-orion-deep-blue py-10 px-6 border-t border-slate-700/50">
+        <div class="container mx-auto text-center text-orion-slate text-base">
+            <p>&copy; <span id="current-year">2025</span> Orion Drift Collective. All rights reserved.</p>
+            <p class="text-base mt-2">Navigating the future, one parsec at a time.</p>
+            <div class="mt-5 space-x-5">
+                <a href="#" aria-label="Orion Drift Comms Network"
+                    class="text-xl hover:text-orion-cyan transition-colors"><i class="fas fa-satellite-dish"></i></a>
+                <a href="#" aria-label="Star Archives" class="text-xl hover:text-orion-cyan transition-colors"><i
+                        class="fas fa-book-journal-whills"></i></a>
+                <a href="#" aria-label="Internal Affairs" class="text-xl hover:text-orion-cyan transition-colors"><i
+                        class="fas fa-user-secret"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
