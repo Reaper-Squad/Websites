@@ -6,7 +6,7 @@ _Replace each `<path/to/...>` with the correct relative path or full GitHub URL.
 ---
 
 ## 🎓 On-boarding Sites
-- [MiliCorp On-boarding Site](</Websites/MiliCorp/>)  
+- [MiliCorp On-boarding Site](</MiliCorp/>)  
 - [Valkyrie On-boarding (Orion)](<Websites/Orion/Valkyries/>)  
 - [Zero Space Website (Orion)](<Websites/Orion/ZeroSpace/>)
 
